@@ -4,7 +4,8 @@ import Section1 from "../../app/components/campaigns/section1";
 import Section4 from "../../app/components/campaigns/section4"; 
 import HumanitarianEfforts from '../components/home/components/HumanitarianEfforts'
 import LatestStories from '../components/home/components/LatestStories'
-import CampaignsFaq from "../../app/components/campaigns/CampaignsFaq.jsx";
+// import CampaignsFaq from "../../app/components/campaigns/CampaignsFaq.jsx";
+import CampaignsFaq from "@/app/components/campaigns/CampaignsFaq";
 import ImpactPage from '../components/home/components/ImpactPage'
 import Together from '../components/our-work/components/Together'
 
