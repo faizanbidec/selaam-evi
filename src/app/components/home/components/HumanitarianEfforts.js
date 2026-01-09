@@ -94,7 +94,7 @@ export default function HumanitarianEfforts({
                     setSelectedProgram(item.id);
                     setIsModalVisible(true);
                   }}
-                  className="w-full bg-[#D21C17] hover:bg-red-700 text-white font-semibold py-2 rounded-bl-[70px]"
+                  className="w-full bg-[#D21C17] hover:bg-red-700 text-white font-semibold py-2 rounded-bl-[70px] cursor-pointer"
                 >
                   Donate Now
                 </button>

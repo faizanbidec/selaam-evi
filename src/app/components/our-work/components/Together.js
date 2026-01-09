@@ -26,7 +26,7 @@ const Together = () => {
         </p>
         <button
           onClick={() => setIsModalVisible(true)}
-          className="border border-white text-white px-6 py-2 cursor-pointer rounded-bl-[15px] hover:bg-white hover:text-red-600" >
+          className="border border-white text-white px-6 py-2 cursor-pointer rounded-bl-[15px] hover:bg-white hover:text-red-600 " >
           Donate Now
         </button>
       </div>

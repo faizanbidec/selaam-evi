@@ -40,14 +40,17 @@ export default function Footer() {
 
             {/* Quick Links */}
             <div className="text-center sm:text-left">
-              <h3 className="font-bold text-gray-900 text-lg md:text-xl mb-5 font-nunito">
+              <h3 className="font-bold text-gray-900 text-lg md:text-xl mb-5 font-nunito cursor-pointer
+
+
+">
                 Quick Links
               </h3>
               <ul className="space-y-3 text-gray-700 text-sm md:text-base inline-block">
-                {["Home", "About Us", "Campaigns", "Services", "Contact Us", "Donation"].map((item) => (
+                {["Home", "About", "Campaigns", "Services", "Contact Us", "Donation"].map((item) => (
                   <li key={item}>
                     <Link
-                      href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                      href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, '-')}`}
                       className="hover:text-[#b10000] transition-colors block"
                     >
                       {item}
@@ -55,6 +58,7 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
+
             </div>
 
             {/* Our Services */}

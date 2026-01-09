@@ -78,7 +78,7 @@ export default function Section3() {
 
                   <button
                     onClick={() => setIsModalVisible(true)}
-                    className="text-black bg-white px-5 py-2 rounded-[60px] text-sm border border-black cursor-pointer hover:bg-gray-100 transition"
+                    className="text-black bg-white px-5 py-2 rounded-[60px] text-sm border  border-black cursor-pointer hover:bg-gray-100 transition"
                   >
                     Donate Now
                   </button>

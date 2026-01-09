@@ -36,14 +36,14 @@ export default function Navbar() {
         </ul>
 
         {/* Right Actions (Desktop: >945px) */}
-        <div className="hidden [@media(min-width:945px)]:flex items-center gap-4">
+        <div className="hidden [@media(min-width:945px)]:flex items-center gap-4 cursor-pointer">
           <Calculator
             className="w-6 h-6 text-white hover:text-[#D21C17] transition"
             onClick={() => router.push("/donate")}
           />
           <button
             onClick={() => setIsModalVisible(true)}
-            className="bg-[#D21C17]  text-white px-9 py-3 rounded-bl-2xl  transition"
+            className="bg-[#D21C17]  text-white px-9 py-3 rounded-bl-2xl cursor-pointer transition"
           >
             Donate Now
           </button>
@@ -82,7 +82,7 @@ export default function Navbar() {
                   setMenuOpen(false);
                   setIsModalVisible(true);
                 }}
-                className="bg-[#D21C17] hover:bg-red-700 text-white px-6 py-3 rounded-bl-2xl font-light transition"
+                className="bg-[#D21C17] hover:bg-red-700  text-white px-6 py-3  rounded-bl-2xl font-light transition cursor-pointer"
               >
                 Donate Now
               </button>

@@ -22,7 +22,7 @@ const Hero = () => {
         </p>
 
         {/* Red Button */}
-        <button className="mt-8 bg-[#D21C17] text-white font-semibold py-3 px-8 rounded-2xl shadow-md hover:bg-red-700 transition-all duration-300">
+        <button className="mt-8 bg-[#D21C17] text-white font-semibold py-3 px-8 rounded-2xl shadow-md hover:bg-red-700 transition-all duration-300 cursor-pointer">
           Donate Now
         </button>
       </div>

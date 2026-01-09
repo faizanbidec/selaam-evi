@@ -32,7 +32,7 @@ export default function ShapingBetterTomorrow() {
             Donate now to a Muslim charity foundation that creates lasting change through compassionate charity service in Türkiye.
 
           </p>
-          <button className="bg-red-600  hover:bg-red-700 text-white px-6 py-3 rounded-bl-2xl font-semibold transition">
+          <button className="bg-red-600  hover:bg-red-700 text-white px-6 py-3 rounded-bl-2xl font-semibold transition cursor-pointer">
             Learn More
           </button>
         </div>

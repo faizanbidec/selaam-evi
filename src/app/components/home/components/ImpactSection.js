@@ -19,7 +19,7 @@ export default function ImpactSection() {
             Our charity services in Türkiye extend to Syria, Gaza, and beyond, bringing hope to vulnerable families. Donate now, give your Zakat or Sadqah Donation, and help us create a lasting impact with compassion and care.
 
           </p>
-          <button className="bg-[#D21C17] hover:bg-red-700 text-white px-6 py-3 rounded-bl-2xl font-light transition">
+          <button className="bg-[#D21C17] hover:bg-red-700 cursor-pointer text-white px-6 py-3 rounded-bl-2xl font-light transition ">
             Learn More
           </button>
         </div>

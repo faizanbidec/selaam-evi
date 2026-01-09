@@ -130,7 +130,7 @@ export default function HumanitarianEfforts() {
                             {/* Donate Button */}
                             <button
                                 onClick={() => setIsModalVisible(true)}
-                                className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 rounded-bl-[70px]"
+                                className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 rounded-bl-[70px] cursor-pointer"
                             >
                                 Donate Now
                             </button>

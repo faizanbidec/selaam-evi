@@ -181,7 +181,7 @@ export default function ServicesGrid() {
                       e.stopPropagation();
                       handleDonateClick(service.id);
                     }}
-                    className="text-black bg-white px-5 py-2 rounded-[60px] text-sm border border-black hover:bg-gray-100 transition"
+                    className="text-black bg-white px-5 py-2 rounded-[60px] text-sm border border-black hover:bg-gray-100 transition cursor-pointer"
                   >
                     Donate Now
                   </button>

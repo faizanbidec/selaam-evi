@@ -16,31 +16,32 @@ export default function HomePage() {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
   const IMG_BASE = process.env.NEXT_PUBLIC_IMAGE_BASE_URL;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [serviceRes, programRes] = await Promise.all([
-          fetch(`${BASE_URL}/services/list`),
-          fetch(`${BASE_URL}/programs/list`),
-        ]);
-        const serviceData = await serviceRes.json();
-        const programData = await programRes.json();
+ useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const [serviceRes, programRes] = await Promise.all([
+        fetch(`${BASE_URL}services/list`),
+        fetch(`${BASE_URL}programs/list`),
+      ]);
+      const serviceData = await serviceRes.json();
+      const programData = await programRes.json();
 
-        const servicesWithImages = (serviceData.data || []).map((s) => ({
-          ...s,
-          image: s.service_image_link ? `${IMG_BASE}/${s.service_image_link}` : "/placeholder.jpg",
-        }));
+      const servicesWithImages = (serviceData.data || []).map((s) => ({
+        ...s,
+        image: s.service_image_link ? `${IMG_BASE}/${s.service_image_link}` : "/placeholder.jpg",
+      }));
 
-        setServices(servicesWithImages);
-        setPrograms(programData.data || []);
-      } catch (error) {
-        console.error("❌ Error fetching data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [BASE_URL, IMG_BASE]);
+      setServices(servicesWithImages);
+      setPrograms(programData.data || []);  // ✅ Programs state set
+    } catch (error) {
+      console.error("❌ Error fetching data:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  fetchData();
+  console.log("programmm", programs);
+}, [BASE_URL, IMG_BASE]);
 
   const dropdownStyle = {
     backgroundImage:
@@ -53,7 +54,7 @@ export default function HomePage() {
   return (
     <div className="relative">
       {/* Hero Section */}
-      <div
+      <div 
         className="relative h-[120vh] bg-cover bg-center flex flex-col justify-center text-white px-4 md:px-20"
         style={{ backgroundImage: "url('/Container School 02.jpg')" }}
       >
@@ -68,7 +69,7 @@ export default function HomePage() {
           </p>
           <button
             onClick={() => setIsModalVisible(true)}
-            className="bg-red-500 hover:bg-red-700 text-white font-nunito px-6 py-3 rounded-bl-2xl font-light transition mt-6"
+            className="bg-red-500 hover:bg-red-700 text-white font-nunito px-6 py-3 rounded-bl-2xl font-light transition mt-6 cursor-pointer"
           >
             Donate Now
           </button>
@@ -81,46 +82,36 @@ export default function HomePage() {
           <div className="bg-[#EDF3FF] p-2 flex flex-col md:flex-row gap-4 items-stretch text-[16px]">
             {/* Service Dropdown */}
             
-            <select
-              value={selectedProgram}
-              onChange={(e) => setDonationType(e.target.value)}
-              className="bg-[#E1E1E1] border border-gray-300 rounded-md w-full appearance-none pr-8 text-lg font-nunito tracking-wide outline-[#D21C17] pl-4"
-              style={dropdownStyle}
-            >
-              <option value="" className="bg-[#E1E1E1] text-black">
-                Services
-              </option>
-              {["lorem ispum 1 ", "lorem ispum 2"].map((type) => (
-                <option
-                  key={type}
-                  value={type}
-                  className="bg-[#FDEDEE] text-[#D21C17] hover:bg-[#FAD1D1] transition-colors"
-                >
-                  {type}
-                </option>
-              ))}
-            </select>
+          <select
+  value={selectedService}
+  onChange={(e) => setSelectedService(e.target.value)}
+  className="bg-[#E1E1E1] border border-gray-300 rounded-md w-full appearance-none pr-8 text-lg font-nunito tracking-wide outline-[#D21C17] pl-4"
+  style={dropdownStyle}
+>
+  <option value="">Services</option>
+  {services?.map((service) => (
+    <option key={service.id} value={service.id}>
+      {service.title}
+    </option>
+  ))}
+</select>
+
 
             {/* Program Dropdown */}
-            <select
-              value={selectedProgram}
-              onChange={(e) => setDonationType(e.target.value)}
-              className="bg-[#E1E1E1] border border-gray-300 rounded-md w-full appearance-none pr-8 text-lg font-nunito tracking-wide outline-[#D21C17] pl-4"
-              style={dropdownStyle}
-            >
-              <option value="" className="bg-[#E1E1E1] text-black">
-                Program
-              </option>
-              {[ "lorem ispum 1 ", "lorem ispum 2"].map((type) => (
-                <option
-                  key={type}
-                  value={type}
-                  className="bg-[#FDEDEE] text-[#D21C17] hover:bg-[#FAD1D1] transition-colors"
-                >
-                  {type}
-                </option>
-              ))}
-            </select>
+          <select
+  value={selectedProgram}
+  onChange={(e) => setSelectedProgram(e.target.value)}
+  className="bg-[#E1E1E1] border border-gray-300 rounded-md w-full appearance-none pr-8 text-lg font-nunito tracking-wide outline-[#D21C17] pl-4"
+  style={dropdownStyle}
+>
+  <option value="">Program</option>
+  {programs?.map((program) => (
+    <option key={program.id} value={program.id}>
+      {program.title}
+    </option>
+  ))}
+</select>
+
 
             {/* Donation Frequency */}
             <select
@@ -132,7 +123,7 @@ export default function HomePage() {
               <option value="" className="bg-[#E1E1E1] text-black">
                 Single Payment
               </option>
-              {["Single Payment", "Monthly", "Yearly"].map((freq) => (
+              {["Monthly", "Yearly"].map((freq) => (
                 <option
                   key={freq}
                   value={freq}
@@ -180,7 +171,7 @@ export default function HomePage() {
           <div className="mt-4">
             <button
               onClick={() => setIsModalVisible(true)}
-              className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-bl-[70px]"
+              className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-bl-[70px] cursor-pointer"
             >
               Quick Donate
             </button>

@@ -21,7 +21,7 @@ export default function ServiceDetailPage() {
     const fetchService = async () => {
       try {
         // if (!service?.details) {
-          const res = await fetch(`${BASE_URL}/services/findby/${slug}`);
+          const res = await fetch(`${BASE_URL}services/findby/${slug}`);
           const data = await res.json();
           setService(data.data);
         // }

@@ -30,7 +30,7 @@
 
   {/* Centered Donate Button */}
   <button
-    className="bg-red-700 hover:bg-red-900 text-white font-semibold px-6 py-3 rounded-md transition"
+    className="bg-red-700 hover:bg-red-900 text-white font-semibold px-6 py-3 rounded-md transition cursor-pointer"
   >
     Donate Now
   </button>
