@@ -10,7 +10,7 @@ export default function HomePage() {
   const [donationFrequency, setDonationFrequency] = useState("");
   const [amount, setAmount] = useState("");
   const [services, setServices] = useState([]);
-  // const [programs, setPrograms] = useState([]);
+  const [programs, setPrograms] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
