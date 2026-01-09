@@ -32,7 +32,10 @@ export default function HealthcareCampSection() {
 
             </p>
 
-            <button className="border border-white text-white px-6 py-2  hover:bg-white hover:text-red-700 transition  rounded-bl-[15px]">
+            <button className="border border-white text-white px-6 py-2  hover:bg-white hover:text-red-700 transition  rounded-bl-[15px] cursor-pointer
+
+
+">
               Read More
             </button>
           </div>

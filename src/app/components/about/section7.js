@@ -57,7 +57,10 @@ const Section7 = () => {
               <p className="mt-1 text-gray-600 text-sm">{story.description}</p>
               <a
                 
-                className="mt-2 inline-block text-red-600 font-semibold text-sm hover:underline"
+                className="mt-2 inline-block text-red-600 font-semibold text-sm hover:underline cursor-pointer
+
+
+"
               >
                 Read More
               </a>
