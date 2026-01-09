@@ -15,7 +15,7 @@
 //   // useEffect(() => {
 //   //   const fetchServices = async () => {
 //   //     try {
-//   //       const res = await fetch("http://salam-evi-nestjs.vapedepablo.com/services/list");
+//   //       const res = await fetch("http://salam-evi.plantinart.com/services/list");
 //   //       if (!res.ok) throw new Error("Failed to fetch services");
 //   //       const data = await res.json();
 //   //       setServices((data?.data || []).reverse());
@@ -60,7 +60,7 @@
 //       ) : (
 //         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 //           {services.map((service, index) => {
-//             const imageUrl = `http://salam-evi-nestjs.vapedepablo.com/uploads/${service.service_image_link}`;
+//             const imageUrl = `http://salam-evi.plantinart.com/uploads/${service.service_image_link}`;
 
 //             return (
 //               <div

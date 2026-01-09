@@ -26,7 +26,7 @@
 //       fetchServices: async () => {  // ✅ API call here
 //         set({ loading: true });
 //         try {
-//           const res = await fetch("http://salam-evi-nestjs.vapedepablo.com/services/list");
+//           const res = await fetch("http://salam-evi.plantinart.com/services/list");
 //           if (!res.ok) throw new Error("Failed to fetch services");
 //           const data = await res.json();
 //           set({ services: (data?.data || []).reverse() });

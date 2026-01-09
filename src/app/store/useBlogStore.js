@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-const BASE_IMAGE_URL = "https://salam-evi.plantinart.com/uploads";
+const BASE_IMAGE_URL = "http://salam-evi.plantinart.com/uploads";
 
 export const useBlogStore = create(
   persist(
@@ -14,7 +14,7 @@ export const useBlogStore = create(
       fetchBlogs: async () => {
         set({ loading: true, error: null });
         try {
-          const res = await fetch("https://salam-evi.plantinart.com/blogs/list");
+          const res = await fetch("http://salam-evi.plantinart.com/blogs/list");
           const json = await res.json();
 
           if (json.status && Array.isArray(json.data)) {

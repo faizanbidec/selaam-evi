@@ -27,7 +27,7 @@ export default function Contactform() {
     setSubmitted(false);
 
     try {
-      const res = await fetch("https://salam-evi.plantinart.com/contact-us", {
+      const res = await fetch("http://salam-evi.plantinart.com/contact-us", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
