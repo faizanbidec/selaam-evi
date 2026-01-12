@@ -126,7 +126,7 @@ export default function DonationFormModal({
     try {
       setLoading(true);
       const res = await fetch(
-        "http://salam-evi.plantinart.com/transactions/create",
+        "https://salam-evi.plantinart.com/transactions/create",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -1,10 +1,25 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Facebook, Instagram, Youtube, Twitter } from "lucide-react";
 import Link from "next/link";
+import DonationFormModal from "./Form";
+
+
 
 export default function Footer() {
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const links = ["Home", "About", "Campaigns", "Services", "Contact Us", "Donation"];
+  
   return (
+<>
+         {/* Donation Modal */}
+            <DonationFormModal
+              open={isModalVisible}
+              onCancel={() => setIsModalVisible(false)}
+            />
+
+
+
     <footer className="bg-[#b10000] text-white relative">
       {/* Add padding-bottom to show red at bottom */}
       <div className="pb-12">
@@ -46,18 +61,33 @@ export default function Footer() {
 ">
                 Quick Links
               </h3>
-              <ul className="space-y-3 text-gray-700 text-sm md:text-base inline-block">
-                {["Home", "About", "Campaigns", "Services", "Contact Us", "Donation"].map((item) => (
-                  <li key={item}>
-                    <Link
-                      href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="hover:text-[#b10000] transition-colors block"
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+     <ul className="space-y-3 text-gray-700 text-sm md:text-base inline-block">
+  {links.map((item) => (
+    <li key={item}>
+      {item === "Donation" ? (
+        <button
+          onClick={() => setIsModalVisible(true)} // ✅ fix here
+          className="hover:text-[#b10000] transition-colors block"
+        >
+          {item}
+        </button>
+      ) : (
+        <Link
+          href={
+            item === "Home"
+              ? "/"
+              : item === "Contact Us"
+              ? "/contact"
+              : `/${item.toLowerCase().replace(/\s+/g, "-")}`
+          }
+          className="hover:text-[#b10000] transition-colors block"
+        >
+          {item}
+        </Link>
+      )}
+    </li>
+  ))}
+</ul>
 
             </div>
 
@@ -66,24 +96,61 @@ export default function Footer() {
               <h3 className="font-bold text-gray-900 text-lg md:text-xl mb-5 font-nunito">
                 Our Services
               </h3>
-              <ul className="space-y-3 text-gray-700 text-sm md:text-base inline-block">
-                {[
-                  "Emergency Relief",
-                  "Food Distribution",
-                  "Medical Assistance",
-                  "Education Support",
-                  "Clean Water Projects",
-                  "Shelter & Housing",
-                ].map((service) => (
-                  <li key={service}>
-                    <Link
-                      href={`/services/${service.toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-')}`}
-                      className="hover:text-[#b10000] transition-colors block"
-                    >
-                      {service}
-                    </Link>
-                  </li>
-                ))}
+              <ul className="space-y-3 text-gray-700 text-sm md:text-base    ">
+
+    <li>
+      <Link
+        href="/blog/emergency "
+        className="hover:text-[#b10000] cursor-pointer"
+      >
+Emergency Relief      </Link>
+    </li>
+        <li>
+      <Link
+        href="/blog/floods"
+        className="hover:text-[#b10000] cursor-pointer"
+      >
+Food Distribution      </Link>
+    </li>
+        <li>
+      <Link
+        href="/services/ Medical Assistance"
+        className="hover:text-[#b10000] cursor-pointer"
+      >
+       Medical Assistance
+      </Link>
+    </li>
+        <li>
+      <Link
+        href="/services/education"
+        className=" hover:text-[#b10000] cursor-pointer"
+      >
+     Education Support
+      </Link>
+    </li>
+        <li>
+      <Link
+        href="/services/Clean Water Projects"
+        className=" hover:text-[#b10000] cursor-pointer"
+      >
+      Clean Water Projects
+      </Link>
+    </li>
+        <li>
+      <Link
+        href="/services/ Shelter & Housingi"
+        className="hover:text-[#b10000] cursor-pointer"
+      >
+    Shelter & Housing
+      </Link>
+    </li>
+
+
+
+
+
+
+            
               </ul>
             </div>
 
@@ -127,8 +194,9 @@ export default function Footer() {
 
         </div>
       </div>
+
     </footer>
 
-
+</>
   );
 }
